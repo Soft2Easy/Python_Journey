@@ -1,0 +1,38 @@
+from replit import clear
+#HINT: You can call clear() to clear the output in the console.
+
+def highest_bidder(bids_):
+  max_amounts_ =0
+  key_ =""
+  
+  for key in bids_:
+    
+    if max_amounts_ <= int(bids_[key]):
+      max_amounts_ = int(bids_[key])
+      key_ = key
+
+  print(f"The winner is {key_} with a bid of {max_amounts_}")
+
+print("Welcome to the secret auction program. \n")
+
+member_ =True
+auc_collection ={}
+
+while member_:
+
+  name_ = input("What is your name?: ")
+  bid_ = input("What's your bid?: $")
+
+  auc_collection[name_] =bid_
+
+  more_members = input("Are there any other bidders? Type 'yes' or 'no'.").lower()
+
+  if more_members=="yes":
+    member_ = True
+    clear()
+  elif more_members=="no":
+    member_ = False
+
+print(f"Collection : {auc_collection}")
+highest_bidder(auc_collection)
+
